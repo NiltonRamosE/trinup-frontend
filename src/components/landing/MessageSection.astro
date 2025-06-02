@@ -1,0 +1,28 @@
+---
+import "@/styles/global.css";
+---
+
+<section class="relative w-full h-[80vh] overflow-hidden">
+  <!-- Fondo principal -->
+  <div class="absolute inset-0">
+    <img 
+      src="/images/bg-message.svg" 
+      alt="Fondo" 
+      class="w-full h-full object-cover z-[1] scale-[1.5]" 
+    />
+  </div>
+
+  <!-- Texto principal -->
+  <div class="absolute inset-0 flex items-center justify-center z-[2]">
+    <img 
+      src="/images/text-message.svg" 
+      alt="Texto principal" 
+      class="w-[80%] md:w-[60%] lg:w-[50%] h-auto object-contain" 
+    />
+  </div>
+
+  <!-- Mensaje adicional -->
+  <div class="absolute bottom-[6%] left-1/2 transform -translate-x-1/2 text-center text-black text-[1.2rem] md:text-[1.5rem] lg:text-[1.7rem] font-semibold font-poppins z-[3]">
+    <p>y hazlo completamente tuyo</p>
+  </div>
+</section>
