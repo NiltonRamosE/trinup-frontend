@@ -1,7 +1,21 @@
 ---
 import "@/styles/global.css";
+import { siteConfig } from "@/shared/site";
 ---
 
-<h1>
-    Navbar Component
-</h1>
+<nav class="bg-white px-8 py-4 ">
+  <div class="flex items-center">
+    <a href="/" class="shrink-0">
+      <img src="/images/logotipo-black.svg" alt="Logo" class="h-10" />
+    </a>
+    <ul class="flex gap-8 ml-12">
+      {siteConfig.navItems.map((item) => (
+        <li>
+          <a href={item.href} class="text-gray-800 hover:text-theme-malachite transition-colors">
+            {item.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</nav>
