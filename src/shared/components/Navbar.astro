@@ -1,21 +1,44 @@
 ---
 import "@/styles/global.css";
+import Button from "@/shared/components/Button.astro";
 import { siteConfig } from "@/shared/site";
 ---
 
-<nav class="bg-white px-8 py-4 ">
-  <div class="flex items-center">
+<nav id="navbar" class="fixed left-0 right-0 z-50 transition-all duration-200 px-8 py-4 font-light">
+  <div class="flex items-center ml-12 2xl:ml-24 ">
     <a href="/" class="shrink-0">
       <img src="/images/logotipo-black.svg" alt="Logo" class="h-10" />
     </a>
-    <ul class="flex gap-8 ml-12">
+    <ul class="flex gap-8 ml-24 pt-2">
       {siteConfig.navItems.map((item) => (
         <li>
-          <a href={item.href} class="text-gray-800 hover:text-theme-malachite transition-colors">
+          <a href={item.href} class="text-theme-rich-black hover:text-theme-malachite transition-colors">
             {item.label}
           </a>
         </li>
       ))}
     </ul>
+    <Button
+      href="/login"
+      label="INICIAR SESIÓN"
+      color="text-theme-rich-black bg-theme-malachite hover:bg-theme-malachite/90 ml-auto mr-12 2xl:mr-24"
+      rounded="rounded-3xl"
+      py="py-2"
+      px="px-10"
+    />
   </div>
 </nav>
+
+<script>
+  const navbar = document.getElementById("navbar");
+
+  window.addEventListener("scroll", () => {
+    if (!navbar) return;
+
+    if (window.scrollY > 0) {
+      navbar.classList.add("bg-theme-seasalt", "shadow-md");
+    } else {
+      navbar.classList.remove("bg-theme-seasalt", "shadow-md");
+    }
+  });
+</script>
