@@ -1,7 +1,42 @@
 ---
 import "@/styles/global.css";
+import Button from "@/shared/components/Button.astro";
 ---
 
-<h1 class="pt-20">
-    Hero Section
-</h1>
+<section class="pt-20 px-8 ml-12 2xl:ml-24">
+  <div class="grid grid-cols-1 md:grid-cols-2 items-center gap-12">
+    
+    <!-- Columna de texto -->
+    <div>
+      <p class="text-3xl 2xl:text-7xl font-semibold text-theme-rich-black mb-4 leading-snug">
+        Tus productos merecen el, 
+        <span class="text-theme-malachite">público ideal</span>
+      </p>
+      
+      <p class="text-base font-light md:text-lg text-theme-rich-black mb-8">
+        Nosotros los encontramos por ti conectando tu marca con clientes realmente interesados en lo que ofreces.
+      </p>
+
+      <Button
+        href="/productos"
+        label="¡COMENCEMOS!"
+        color="text-theme-rich-black bg-theme-malachite hover:bg-theme-malachite/90"
+        rounded="rounded-4xl"
+        py="py-4"
+        px="px-6"
+      />
+    </div>
+
+    <!-- Columna de imagen -->
+    <div class="flex justify-center">
+      <img 
+        src="/images/tienda-hero.svg" 
+        alt="Imagen referencial de una tienda con diversos productos." 
+        class="w-full max-w-lg md:max-w-xl lg:max-w-2xl h-auto"
+      />
+    </div>
+
+  </div>
+</section>
+
+
