@@ -2,17 +2,33 @@
 import "@/styles/global.css";
 ---
 
-<section class="relative w-full h-[80vh] overflow-hidden">
-  <!-- Fondo principal -->
-  <div class="absolute inset-0">
+<section class="relative w-full h-[80vh] overflow-hidden mt-20">
+  <div class="absolute inset-0 z-[1]">
     <img 
-      src="/images/bg-message.svg" 
+      src="/images/bg-message.webp" 
       alt="Fondo" 
-      class="w-full h-full object-cover z-[1] scale-[1.5]" 
+      class="w-full h-full object-cover scale-[1.5]" 
     />
+    <div class="absolute top-0 left-0 w-full overflow-hidden leading-[0] z-[2]">
+      <div class="relative w-[200%] h-[80px] wave-animation flex">
+        <svg class="w-1/2 h-full text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 150" preserveAspectRatio="none">
+          <path fill="currentColor" d="M0,80 
+            C120,0 240,160 360,80 
+            C480,0 600,160 720,80 
+            C840,0 960,160 1080,80 
+            L1080,0 L0,0 Z"/>
+        </svg>
+        <svg class="w-1/2 h-full text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 150" preserveAspectRatio="none">
+          <path fill="currentColor" d="M0,80 
+            C120,0 240,160 360,80 
+            C480,0 600,160 720,80 
+            C840,0 960,160 1080,80 
+            L1080,0 L0,0 Z"/>
+        </svg>
+      </div>
+    </div>
   </div>
 
-  <!-- Texto principal -->
   <div class="absolute inset-0 flex items-center justify-center z-[2]">
     <img 
       src="/images/text-message.svg" 
@@ -21,8 +37,7 @@ import "@/styles/global.css";
     />
   </div>
 
-  <!-- Mensaje adicional -->
-  <div class="absolute bottom-[6%] left-1/2 transform -translate-x-1/2 text-center text-black text-[1.2rem] md:text-[1.5rem] lg:text-[1.7rem] font-semibold font-poppins z-[3]">
+  <div class="absolute bottom-[6%] left-1/2 transform -translate-x-1/2 text-center text-black text-[1.2rem] md:text-[1.5rem] lg:text-[1.7rem] font-semibold z-[3]">
     <p>y hazlo completamente tuyo</p>
   </div>
 </section>
