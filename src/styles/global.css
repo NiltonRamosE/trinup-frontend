@@ -34,3 +34,16 @@
 body {
   font-family: 'Poppins', sans-serif;
 }
+
+@keyframes waveMove {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.wave-animation {
+  animation: waveMove 8s linear infinite;
+}
