@@ -1,7 +1,31 @@
 ---
 import "@/styles/global.css";
+import CarouselCard from "@/landing/components/CarouselCard.astro";
+import SplitCard from "@/landing/components/SplitCard.astro";
 ---
+<section class="py-10">
+  <h3 class="text-2xl font-light text-center mb-6">COLABORACIONES CON MARCAS</h3>
+  <div class="grid grid-cols-2 md:grid-cols-3 gap-6 px-4 place-items-center mt-15">
+    <CarouselCard image="/images/partnerts/nutriavo-logo.svg" alt="Logo del aliado estratégico NutriAvo" />
+    <CarouselCard image="/images/partnerts/vitalmash-logo.svg" alt="Logo del aliado estratégico Vitalmash" />
+    <CarouselCard image="/images/partnerts/sklit-logo.svg" alt="Logo del aliado estratégico SKLIT" />
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 px-4 place-items-center mt-50">
+    <SplitCard
+      text="CRECE TU PRODUCTO"
+      spanText="CON DATOS REALES"
+      image="/images/card-example-1.webp"
+      href="/productos"
+      label="¡Hazlo realidad!"
+    />
 
-<h1>
-    Partner Section
-</h1>
+    <SplitCard
+      text="DESCUBRE, PRUEBA, CONECTA"
+      spanText="Y HAZ LA DIFERENCIA"
+      image="/images/card-example-2.webp"
+      href="/productos"
+      label="¡Tu gusto cuenta!"
+    />
+  </div>
+</section>
+
