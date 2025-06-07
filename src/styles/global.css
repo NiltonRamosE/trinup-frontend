@@ -1,8 +1,8 @@
 @import "tailwindcss";
 @theme {
     --color-theme-seasalt: #F6F6F6;     /* Blanco */
-    --color-theme-maize: #F6E944;       /* Amarillo */
-    --color-theme-malachite: #25D367;   /* Verde */
+    --color-theme-maize: #fffe49;       /* Amarillo */
+    --color-theme-malachite: #19ee65;   /* Verde */
     --color-theme-rich-black: #0D181C;  /* Negro */
 
 }
@@ -47,3 +47,4 @@ body {
 .wave-animation {
   animation: waveMove 8s linear infinite;
 }
+
