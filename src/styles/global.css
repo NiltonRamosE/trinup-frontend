@@ -3,6 +3,7 @@
     --color-theme-seasalt: #F6F6F6;     /* Blanco */
     --color-theme-maize: #F6E944;       /* Amarillo */
     --color-theme-malachite: #25D367;   /* Verde */
+    --color-theme-spring-green: #18ef65;   /* Verde Claro*/
     --color-theme-rich-black: #0D181C;  /* Negro */
 
 }
@@ -25,12 +26,27 @@
 
 @font-face {
   font-family: 'Poppins';
+  src: url('/fonts/Poppins-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
   src: url('/fonts/Poppins-SemiBold.woff2') format('woff2');
   font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/Poppins-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
 body {
   font-family: 'Poppins', sans-serif;
 }
