@@ -1,9 +1,15 @@
 @import "tailwindcss";
 @theme {
+    --color-theme-spring-green: #00FF66;
+    --color-theme-electric-violet: #8f00ff;
+    --color-theme-white-smoke: #f2f2f2;
+    --color-theme-raisin-black: #1e1e2f;
+    --color-theme-aquamarine: #00f5d4;
+    --color-theme-bright-pink: #ff5c8a;
+    --color-theme-rose-red: #C92856;
     --color-theme-seasalt: #F6F6F6;     /* Blanco */
-    --color-theme-maize: #F6E944;       /* Amarillo */
-    --color-theme-malachite: #25D367;   /* Verde */
-    --color-theme-spring-green: #18ef65;   /* Verde Claro*/
+    --color-theme-maize: #fffe49;       /* Amarillo */
+    --color-theme-malachite: #19ee65;   /* Verde */
     --color-theme-rich-black: #0D181C;  /* Negro */
 
 }
@@ -62,4 +68,34 @@ body {
 
 .wave-animation {
   animation: waveMove 8s linear infinite;
+}
+
+@keyframes moveCirculara {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes moveCircularb {
+  0% {
+    transform: translateX(0%) translateY(0);
+  }
+
+  100% {
+    transform: translateX(200%) translateY(0);
+  }
+}
+
+
+.animate-circular-a {
+  animation: moveCirculara 10s infinite linear;
+}
+.animate-circular-b {
+  animation: moveCircularb 10s infinite linear;
 }
