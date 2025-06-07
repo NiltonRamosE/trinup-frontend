@@ -27,7 +27,7 @@ const frases = [
       target="_blank"
       class="flex items-center justify-center gap-2 bg-theme-spring-green text-theme-rich-black px-6 py-4 w-90 rounded-2xl font-regular text-xl shadow-md transition hover:bg-theme-spring-green/90"
     >
-      <img src="/public/images/whatsapp-icon.svg" alt="icono de WhatsApp" class="w-6 h-6" />
+      <img src="/images/whatsapp-icon.svg" alt="icono de WhatsApp" class="w-6 h-6" />
       WhatsApp
     </a>
 
@@ -36,7 +36,7 @@ const frases = [
       href="tel:+51999999999"
       class="flex items-center gap-2 justify-center bg-theme-rich-black text-theme-seasalt px-6 py-4 w-90 rounded-2xl font-regular text-xl shadow-md transition hover:bg-theme-rich-black/90"
     >
-      <img src="/public/images/phone-icon.svg" alt="icono de telefono" class="w-6 h-6" />
+      <img src="/images/phone-icon.svg" alt="icono de telefono" class="w-6 h-6" />
       Llamar ahora
     </a>
 
@@ -44,7 +44,7 @@ const frases = [
       href="mailto:correo@ejemplo.com"
       class="flex items-center gap-2 justify-center bg-theme-maize text-theme-rich-black px-6 py-4 w-90 rounded-2xl font-regular text-xl shadow-md transition hover:bg-theme-maize/90"
     >
-      <img src="/public/images/mail-icon.svg" alt="icono de correo" class="w-6 h-6" />
+      <img src="/images/mail-icon.svg" alt="icono de correo" class="w-6 h-6" />
       Correo
     </a>
   </div>
@@ -53,11 +53,13 @@ const frases = [
     <div class="flex items-center justify-center">
       <div class="bg-white p-6 rounded-4xl shadow-brand-card w-xl h-full">
         <h4 class="text-xl font-bold mb-12 text-theme-rich-black text-left mt-4">Escribe tu mensaje</h4>
-        <form class="space-y-8 w-full max-w-xl">
+        <form id="ContactGoogleForm" class="space-y-8 w-full max-w-xl" action="https://docs.google.com/forms/d/1Z5Tei5_YeVBHmx-BdPe-Re_GzdcpWoybvld4Bc5jcMM/formResponse" method="POST" target="hidden_iframe" novalidate>
           <div class="flex flex-col md:flex-row gap-4">
             <div class="w-full">
               <span class="block text-sm font-medium text-theme-rich-black mb-1 text-left">Nombres <span class="text-red-600">*</span></span>
               <input
+                id="nombres"
+                name="entry.917920380"
                 type="text"
                 class="w-full px-4 py-3 border border-theme-rich-black/50 rounded-lg focus:outline-none focus:ring-2 focus:ring-theme-spring-green"
               />
@@ -65,6 +67,8 @@ const frases = [
             <div class="w-full">
               <span class="block text-sm font-medium text-theme-rich-black mb-1 text-left">Apellidos <span class="text-red-600">*</span></span>
               <input
+                id="apellidos"
+                name="entry.992539036"
                 type="text"
                 class="w-full px-4 py-3 border border-theme-rich-black/50  rounded-lg focus:outline-none focus:ring-2 focus:ring-theme-spring-green"
               />
@@ -74,6 +78,8 @@ const frases = [
           <div>
             <span class="block text-sm font-medium text-theme-rich-black mb-1 text-left">Correo electrónico <span class="text-red-600">*</span></span>
             <input
+              id="correo"
+              name="entry.1582120582"
               type="email"
               class="w-full px-4 py-3 border border-theme-rich-black/50  rounded-lg focus:outline-none focus:ring-2 focus:ring-theme-spring-green"
             />
@@ -82,6 +88,7 @@ const frases = [
           <div>
             <span class="block text-sm font-medium text-theme-rich-black mb-1 text-left">Teléfono <span class="text-red-600">*</span></span>
             <input
+              name="entry.1317356111"
               type="tel"
               class="w-full px-4 py-3 border border-theme-rich-black/50  rounded-lg focus:outline-none focus:ring-2 focus:ring-theme-spring-green"
             />
@@ -90,6 +97,7 @@ const frases = [
           <div>
             <span class="block text-sm font-medium text-theme-rich-black mb-1 text-left">Mensaje <span class="text-red-600">*</span></span>
             <textarea
+              name="entry.1510882835"
               rows="5"
               class="w-full px-4 py-3 border border-theme-rich-black/50  rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-theme-spring-green"
             ></textarea>
@@ -129,3 +137,41 @@ const frases = [
     box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.3);
   }
 </style>
+
+<script is:inline>
+  document.getElementById("ContactGoogleForm").addEventListener("submit", function (event) {
+    let form = this;
+    let valid = true;
+
+    // Convertir nombres y apellidos a mayúsculas automáticamente
+    let apellidos = form.querySelector("#apellidos");
+    let nombres = form.querySelector("#nombres");
+    if (apellidos) apellidos.value = apellidos.value.toUpperCase();
+    if (nombres) nombres.value = nombres.value.toUpperCase();
+
+    // Validación del correo manualmente
+    let correo = form.querySelector("#correo");
+    let gmailPattern = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+
+    if (!gmailPattern.test(correo.value)) {
+      valid = false;
+    }
+
+    // Validar otros campos (evita que todos se marquen incorrectos de golpe)
+    form.querySelectorAll("input:not(#correo), textarea").forEach(input => {
+      if (!input.checkValidity()) {
+        valid = false;
+      }
+    });
+
+    // Si hay errores, detenemos el envío
+    event.preventDefault();
+    if (!valid) {
+      event.stopPropagation();
+    } else {
+      let formData = new FormData(this);
+      fetch(this.action, { method: "POST", body: formData })
+      this.reset();
+    }
+  });
+</script>
