@@ -3,38 +3,144 @@ import Button from "@/shared/components/Button.astro";
 import { siteConfig } from "@/shared/site";
 ---
 
-<nav id="navbar" class="fixed left-0 right-0 z-50 transition-all duration-200 px-8 py-4 font-light">
-  <div class="flex items-center ml-12 2xl:ml-24 ">
-    <a href="/" class="shrink-0">
+<nav
+  id="navbar"
+  class="fixed left-0 right-0 z-50 transition-all duration-200 px-4 py-4 font-light bg-white"
+>
+  <div class="flex items-center w-full justify-between flex-wrap">
+    <!-- Logo -->
+    <a href="/" class="shrink-0 ml-4">
       <img src="/images/logo-text.svg" alt="Logo" class="h-10" />
     </a>
-    <ul class="flex gap-8 ml-24 pt-2">
-      {siteConfig.navItems.map((item) => (
-        <li>
-          <a href={item.href} class="text-theme-rich-black hover:text-theme-malachite transition-colors">
-            {item.label}
-          </a>
-        </li>
-      ))}
-    </ul>
-    <Button
-      href="/login"
-      label="INICIAR SESIÓN"
-      color="text-theme-rich-black bg-theme-spring-green hover:bg-theme-malachite"
-      rounded="rounded-3xl"
-      py="py-2"
-      px="px-10"
-      aditionalClasses="ml-auto mr-12 2xl:mr-24"
-    />
+
+    <!-- Menú -->
+    <div
+      id="menu"
+      class="w-full hidden md:flex md:items-center md:w-auto mt-4 md:mt-0"
+    >
+      <ul class="flex flex-col md:flex-row gap-4 md:gap-8 ml-4 md:ml-24">
+        {
+          siteConfig.navItems.map((item) => (
+            <li>
+              <a
+                href={item.href}
+                class="text-theme-rich-black hover:text-theme-malachite transition-colors"
+              >
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+
+      <!-- Botón de login -->
+      <div class="mt-4 pl-3 md:mt-0 md:ml-auto md:mr-12 2xl:mr-24">
+        <Button
+          href="/login"
+          label="INICIAR SESIÓN"
+          color="text-theme-rich-black bg-theme-spring-green hover:bg-theme-malachite"
+          rounded="rounded-3xl"
+          py="py-2"
+          px="px-10"
+        />
+      </div>
+    </div>
+    <!-- Botón hamburguesa (visible en móvil) -->
+    <button
+      id="menu-toggle"
+      class="md:hidden flex flex-col justify-center items-center w-8 h-8 cursor-pointer"
+      aria-label="Toggle menu"
+    >
+      <span class="hamburger-line line-1 block w-6 h-0.5 bg-gray-600 mb-1"
+      ></span>
+      <span class="hamburger-line line-2 block w-6 h-0.5 bg-gray-600 mb-1"
+      ></span>
+      <span class="hamburger-line line-3 block w-6 h-0.5 bg-gray-600"></span>
+    </button>
+  </div>
+
+  <!-- Menú móvil (inicialmente oculto) -->
+  <div
+    id="mobile-menu"
+    class="md:hidden bg-white border-t border-gray-200 transition-all duration-300 ease-in-out transform -translate-y-full opacity-0 max-h-0 overflow-hidden"
+  >
+    <div class="container mx-auto px-4 py-4">
+      <ul class="flex flex-col md:flex-row gap-4 md:gap-8 ml-4 md:ml-24">
+        {
+          siteConfig.navItems.map((item) => (
+            <li>
+              <a
+                href={item.href}
+                class="text-theme-rich-black hover:text-theme-malachite transition-colors"
+              >
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+            <!-- Botón de login -->
+      <div class="mt-4 pl-3 md:mt-0 md:ml-auto md:mr-12 2xl:mr-24">
+        <Button
+          href="/login"
+          label="INICIAR SESIÓN"
+          color="text-theme-rich-black bg-theme-spring-green hover:bg-theme-malachite"
+          rounded="rounded-3xl"
+          py="py-2"
+          px="px-10"
+        />
+      </div>
+    </div>
   </div>
 </nav>
 
 <script>
-  const navbar = document.getElementById("navbar");
+  // JavaScript para manejar la funcionalidad del menú
+  const menuToggle = document.getElementById("menu-toggle");
+  const mobileMenu = document.getElementById("mobile-menu");
+  let isMenuOpen = false;
 
+  if (menuToggle && mobileMenu) {
+    menuToggle.addEventListener("click", function () {
+      isMenuOpen = !isMenuOpen;
+
+      if (isMenuOpen) {
+        // Abrir menú
+        menuToggle.classList.add("hamburger-active");
+        mobileMenu.classList.remove(
+          "-translate-y-full",
+          "opacity-0",
+          "max-h-0"
+        );
+        mobileMenu.classList.add("translate-y-0", "opacity-100", "max-h-96");
+      } else {
+        // Cerrar menú
+        menuToggle.classList.remove("hamburger-active");
+        mobileMenu.classList.remove("translate-y-0", "opacity-100", "max-h-96");
+        mobileMenu.classList.add("-translate-y-full", "opacity-0", "max-h-0");
+      }
+    });
+  }
+
+  // Cerrar menú al hacer clic en un enlace (opcional)
+  if (mobileMenu) {
+    const menuLinks = mobileMenu.querySelectorAll("a");
+    menuLinks.forEach((link) => {
+      link.addEventListener("click", function () {
+        isMenuOpen = false;
+        if (menuToggle) {
+          menuToggle.classList.remove("hamburger-active");
+        }
+        mobileMenu.classList.remove("translate-y-0", "opacity-100", "max-h-96");
+        mobileMenu.classList.add("-translate-y-full", "opacity-0", "max-h-0");
+      });
+    });
+  }
+
+  // Toggle mobile menu
+  const navbar = document.getElementById("navbar");
   window.addEventListener("scroll", () => {
     if (!navbar) return;
-
     if (window.scrollY > 0) {
       navbar.classList.add("bg-theme-seasalt", "shadow-md");
     } else {
@@ -42,3 +148,22 @@ import { siteConfig } from "@/shared/site";
     }
   });
 </script>
+
+<style>
+  /* Configuración adicional para animaciones personalizadas */
+  .hamburger-line {
+    transition: all 0.3s ease-in-out;
+  }
+
+  .hamburger-active .line-1 {
+    transform: rotate(45deg) translate(6px, 6px);
+  }
+
+  .hamburger-active .line-2 {
+    opacity: 0;
+  }
+
+  .hamburger-active .line-3 {
+    transform: rotate(-45deg) translate(6px, -6px);
+  }
+</style>

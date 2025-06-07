@@ -92,6 +92,35 @@ body {
   }
 }
 
+@keyframes navbar-animation-fade-in{
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes navbar-animation-fade-out{
+  0% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
+
+.navbar-animation-in {
+  animation: navbar-animation-fade-in 0.6s ease-in-out ;
+}
+.navbar-animation-out{
+  animation: navbar-animation-fade-out 0.6s ease-in-out;
+}
 
 .animate-circular-a {
   animation: moveCirculara 10s infinite linear;

@@ -9,56 +9,79 @@ const frases = [
 ];
 ---
 
-<section class="">
+<section class="flex-col items-center justify-center">
   <ScrollingBanner phrases={frases} />
 
-  <div class="text-center mt-10 mb-6">
-    <h3 class="text-4xl font-semibold">Nuestras Soluciones</h3>
-    <p class="text-xl text-theme-rich-black font-regular">Para empresas o marca</p>
+  <!-- TITLE: NUESTRAS SOLUCIONES -->
+  <div class="text-center mt-10 mb-4">
+    <h3 class="text-5xl font-semibold">Nuestras Soluciones</h3>
+    <p class="text-2xl text-theme-rich-black font-regular">
+      Para empresas o marca
+    </p>
   </div>
 
-  <div class="grid grid-cols-1 lg:grid-cols-3 max-w-6xl mx-auto mb-12">
-    <SolutionCard
-      image="/images/icon-solution-1.svg"
-      title="Tienda personalizada"
-      description="Gestiona tus productos y accede a estadísticas con total libertad, facilidad y en tiempo real."
-      aditionalclass="rounded-t-2xl lg:rounded-none"
-    />
-    <SolutionCard
-      image="/images/icon-solution-2.svg"
-      title="Comunidad activa"
-      description="Impulsa la interacción entre tus clientes para fortalecer la lealtad hacia tu marca."
-    />
-    <SolutionCard
-      image="/images/icon-solution-3.svg"
-      title="Validación de productos"
-      description="Lanza y valida productos con el respaldo de usuarios que realmente los necesitan."
-      aditionalclass="rounded-b-2xl lg:rounded-none"
-    />
+  <div
+    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-0 w-full max-w-6xl mx-auto px-4 divide-y sm:divide-y-0 sm:divide-x border border-gray-300"
+  >
+    <div class="h-full p-4">
+      <SolutionCard
+        image="/images/icon-solution-1.svg"
+        title="Tienda personalizada"
+        description="Gestiona tus productos y accede a estadísticas con total libertad, facilidad y en tiempo real."
+        aditionalclass="rounded-t-2xl lg:rounded-none w-full"
+      />
+    </div>
+
+    <div class="h-full p-4">
+      <SolutionCard
+        image="/images/icon-solution-2.svg"
+        title="Comunidad activa"
+        description="Impulsa la interacción entre tus clientes para fortalecer la lealtad hacia tu marca."
+        aditionalclass="w-full"
+      />
+    </div>
+
+    <div class="h-full p-4">
+      <SolutionCard
+        image="/images/icon-solution-3.svg"
+        title="Validación de productos"
+        description="Lanza y valida productos con el respaldo de usuarios que realmente los necesitan."
+        aditionalclass="rounded-b-2xl lg:rounded-none w-full"
+      />
+    </div>
   </div>
 
-  <div class="text-center mb-6">
-    <h3 class="text-4xl font-semibold">Nuestras Soluciones</h3>
-    <p class="text-xl text-theme-rich-black font-regular">Para usuarios</p>
+  <div class="text-center mt-10 mb-4">
+    <h3 class="text-5xl font-semibold">Nuestras Soluciones</h3>
+    <p class="text-2xl text-theme-rich-black font-regular">Para usuarios</p>
   </div>
 
-  <div class="grid grid-cols-1 lg:grid-cols-3 max-w-6xl mx-auto">
-    <SolutionCard
-      image="/images/icon-solution-4.svg"
-      title="Recomendacion personalizada"
-      description="Productos seleccionados con cuidado, adaptados a tu estilo de vida."
-      aditionalclass="rounded-t-2xl lg:rounded-none"
-    />
-    <SolutionCard
-      image="/images/icon-solution-5.svg"
-      title="Bienestar y salud conectada"
-      description="Lleva el control diario de tu consumo nutricional y mejora tu bienestar."
-    />
-    <SolutionCard
-      image="/images/icon-solution-6.svg"
-      title="Validación de productos confiable"
-      description="Recibe opiniones honestas de personas como tú antes de tomar decisiones."
-      aditionalclass="rounded-b-2xl lg:rounded-none"
-    />
+  <div
+    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-0 w-full max-w-6xl mx-auto px-4 divide-y sm:divide-y-0 sm:divide-x border border-gray-300"
+  >
+    <div class="h-full p-4">
+      <SolutionCard
+        image="/images/icon-solution-4.svg"
+        title="Recomendación personalizada"
+        description="Productos seleccionados con cuidado, adaptados a tu estilo de vida."
+        aditionalclass="rounded-t-2xl lg:rounded-none"
+      />
+    </div>
+
+    <div class="h-full p-4">
+      <SolutionCard
+        image="/images/icon-solution-5.svg"
+        title="Bienestar y salud conectada"
+        description="Lleva el control diario de tu consumo nutricional y mejora tu bienestar."
+      />
+    </div>
+    <div class="h-full p-4">
+      <SolutionCard
+        image="/images/icon-solution-6.svg"
+        title="Validación de productos confiable"
+        description="Recibe opiniones honestas de personas como tú antes de tomar decisiones."
+        aditionalclass="rounded-b-2xl lg:rounded-none"
+      />
+    </div>
   </div>
 </section>
