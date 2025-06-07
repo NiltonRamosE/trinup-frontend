@@ -1,8 +1,11 @@
 ---
+
 ---
 
 <section class="items-center mx-auto py-10 text-center w-full">
-  <div class="flex flex-row flex-wrap px-8 items-center justify-center gap-8 w-full">
+  <div
+    class="flex flex-row flex-wrap px-8 items-center justify-center gap-8 w-full"
+  >
     <div class="m-8 text-left">
       <h2 class="text-4xl font-bold text-green-600">Preguntas Frecuentes</h2>
       <p class="text-sm mt-2 text-xl text-gray-700">
@@ -15,41 +18,79 @@
 
     <!-- Preguntas como acordeón -->
     <div class="mt-6 m-8 space-y-2 text-left w-full max-w-xl">
-      <details class="bg-theme-malachite rounded-lg text-theme-rich-black px-4 py-3">
-        <summary class="cursor-pointer font-semibold flex justify-between items-center">
+      <details
+        class="group bg-theme-malachite rounded-lg text-theme-rich-black px-4 py-3 transition-all duration-300"
+        data-open="false"
+      >
+        <summary
+          class="cursor-pointer flex justify-between items-center font-semibold text-lg"
+        >
           <span>1. ¿Quienes somos y qué hacemos?</span>
           <span>▼</span>
         </summary>
-        <p class="mt-2 text-sm bg-theme-maize p-4 rounded-lg">Somos una empresa especializada en formación técnica con más de 24 años de experiencia.</p>
+        <div
+          class="transition-all duration-500 overflow-hidden mt-4 text-sm text-gray-700"
+        >
+          <p class="p-3 bg-yellow-50 rounded-lg">
+            Somos una empresa especializada en formación técnica con más de 24
+            años de experiencia.
+          </p>
+        </div>
       </details>
 
-      <details class="bg-theme-malachite rounded-lg text-theme-rich-black px-4 py-3">
-        <summary class="cursor-pointer font-semibold flex justify-between items-center">
+      <details
+        class="bg-theme-malachite rounded-lg text-theme-rich-black px-4 py-3"
+      >
+        <summary
+          class="cursor-pointer font-semibold flex justify-between items-center"
+        >
           <span>2. ¿Por qué entrar a Trinup?</span>
           <span>▼</span>
         </summary>
-        <p class="mt-2 text-sm p-4 bg-theme-maize rounded-lg">Porque te ofrecemos soluciones prácticas y capacitación de calidad certificada.</p>
+        <div
+          class="transition-all duration-500 overflow-hidden mt-4 text-sm text-gray-700"
+        >
+          <p class="p-3 bg-yellow-50 rounded-lg">
+            Porque te ofrecemos soluciones prácticas y capacitación de calidad
+            certificada.
+          </p>
+        </div>
       </details>
 
-      <details class="bg-theme-malachite rounded-lg text-theme-rich-black px-4 py-3">
-        <summary class="cursor-pointer font-semibold flex justify-between items-center">
+      <details
+        class="bg-theme-malachite rounded-lg text-theme-rich-black px-4 py-3"
+      >
+        <summary
+          class="cursor-pointer font-semibold flex justify-between items-center"
+        >
           <span>3. ¿Dónde puedo ubicarlos?</span>
           <span>▼</span>
         </summary>
-        <p class="mt-2 text-sm p-4 bg-theme-maize rounded-lg">Puedes encontrarnos en nuestras sedes físicas o contactarnos desde cualquier lugar.</p>
+        <div
+          class="transition-all duration-500 overflow-hidden mt-4 text-sm text-gray-700"
+        >
+          <p class="p-3 bg-yellow-50 rounded-lg">
+            Puedes encontrarnos en nuestras sedes físicas o contactarnos desde
+            cualquier lugar.
+          </p>
+        </div>
       </details>
     </div>
   </div>
 
-<div class="bg-theme-malachite text-black text-xl py-4 mt-8 rounded-xl flex flex-row gap-4 overflow-hidden">
-  <p class="animate-circular-a whitespace-nowrap w-fit translate-x-[-100%]">
-    ¿Aún con dudas? 🤔 ¿Deseas saber más de nosotros? 🤔 Tranquilo, puedes contactarnos 🤗 o llamarnos 😎
-  </p>
-  <p class="animate-circular-b whitespace-nowrap w-fit translate-x-[-100%]">
-    ¿Aún con dudas? 🤔 ¿Deseas saber más de nosotros? 🤔 Tranquilo, puedes contactarnos 🤗 o llamarnos 😎
-  </p>
-</div>
-
+  <!-- <div
+    class="bg-theme-malachite text-black text-xl py-4 mt-8 rounded-xl flex flex-row gap-4 overflow-hidden"
+  >
+    <p class="animate-circular-a whitespace-nowrap w-fit translate-x-[-100%]">
+      ¿Aún con dudas? 🤔 ¿Deseas saber más de nosotros? 🤔 Tranquilo, puedes
+      contactarnos 🤗 o llamarnos 😎
+    </p>
+    <p class="animate-circular-b whitespace-nowrap w-fit translate-x-[-100%]">
+      ¿Aún con dudas? 🤔 ¿Deseas saber más de nosotros? 🤔 Tranquilo, puedes
+      contactarnos 🤗 o llamarnos 😎
+    </p>
+  </div> -->
+  <!-- 
 
   <h2 class="text-xl font-bold mt-10 text-theme-rich-black uppercase">
     Contáctanos Ahora
@@ -68,5 +109,47 @@
     <button class="bg-theme-maize text-black px-6 py-3 rounded-lg flex items-center gap-2">
       <span>✉️</span> Correo
     </button>
-  </div>
+  </div> -->
 </section>
+<style>
+  summary::marker {
+    display: none;
+  }
+</style>
+<script>
+  // Controla la animación suave al abrir/cerrar
+  document.querySelectorAll("details").forEach((detail) => {
+    const summary = detail.querySelector("summary");
+    const content = detail.querySelector("div");
+    if (!summary) return;
+    const icon = summary.querySelector("svg");
+
+    summary.addEventListener("click", (e) => {
+      e.preventDefault();
+      const isOpen = detail.hasAttribute("open");
+
+      // Cierre suave
+      if (isOpen) {
+        if (content) {
+          content.style.maxHeight = content.scrollHeight + "px";
+          requestAnimationFrame(() => {
+            content.style.maxHeight = "0px";
+          });
+        }
+        if (icon) icon.classList.remove("rotate-180");
+        setTimeout(() => detail.removeAttribute("open"), 500);
+      }
+      // Apertura suave
+      else {
+        detail.setAttribute("open", "");
+        if (content) {
+          content.style.maxHeight = "0px";
+          requestAnimationFrame(() => {
+            content.style.maxHeight = content.scrollHeight + "px";
+          });
+        }
+        if (icon) icon.classList.add("rotate-180");
+      }
+    });
+  });
+</script>
