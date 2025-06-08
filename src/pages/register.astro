@@ -1,6 +1,6 @@
 ---
 import PublicLayout from '@/layouts/PublicLayout.astro';
-
+import RegisterSection from '@/auth/sections/RegisterSection.astro';
 const robots = ["index", "follow"];
 const title = "Registrar Cuenta";
 const description = "Únete a TrinUp y empieza tu transformación hacia una vida más saludable. Regístrate para acceder a herramientas de nutrición, bienestar y hábitos positivos.";
@@ -11,7 +11,5 @@ const imagetwt = "/card-twt.webp";
 ---
 
 <PublicLayout {robots} {title} {description} {keywords} {url} {imageOG} {imagetwt}>
-    <section>
-        <h1>registro</h1>
-    </section>
+    <RegisterSection />
 </PublicLayout>
