@@ -1,5 +1,4 @@
 ---
-// src/components/SplitCard.astro
 const { text, spanText, image, button = true, href = "/productos", label = "¡COMENCEMOS!" } = Astro.props;
 import Button from "@/shared/components/Button.astro";
 ---
@@ -7,8 +6,8 @@ import Button from "@/shared/components/Button.astro";
 <div class="relative border-3 rounded-3xl overflow-hidden w-full max-w-xl max-h-[350px] flex flex-col">
   <!-- Parte superior -->
   <div class="bg-theme-spring-green text-theme-rich-black flex items-center justify-center px-6 py-8 text-center h-1/2 relative">
-    <p class="text-2xl font-regular">
-      {text} <br> <span class="font-semibold text-5xl">{spanText}</span>
+    <p class="text-sm sm:text-lg md:text-xl xl:text-2xl font-regular">
+      {text} <br> <span class="font-bold text-xl sm:text-3xl md:text-4xl xl:text-5xl">{spanText}</span>
     </p>
 
     {button && (
@@ -26,8 +25,7 @@ import Button from "@/shared/components/Button.astro";
     )}
   </div>
 
-  <div class="flex items-center justify-center h-1/2">
-    <img src={image} alt={spanText} class="w-full h-full" loading="lazy" />
-</div>
-
+  <div class="flex items-center justify-center h-64 w-full overflow-hidden">
+    <img src={image} alt={spanText} class="w-full h-full object-cover" loading="lazy" />
+  </div>
 </div>
