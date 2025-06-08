@@ -6,9 +6,17 @@ import PartnerSection from '@/landing/sections/PartnerSection.astro';
 import ProposalSection from '@/landing/sections/ProposalSection.astro';
 import FAQSection from '@/landing/sections/FAQSection.astro';
 import ContactSection from '@/landing/sections/ContactSection.astro';
+
+const robots = ["index", "follow"];
+const title = "TrinUp: Nutrición y superación";
+const description = "TrinUp es una app donde toda persona merece o puede mejorar su estilo de vida con buenos hábitos y nutrición.";
+const keywords = ["nutrición", "salud", "bienestar", "hábitos saludables", "TrinUp", "superación personal"];
+const url = "https://trinup-frontend.vercel.app";
+const imageOG = "/card-twt.webp";
+const imagetwt = "/card-twt.webp";
 ---
 
-<PublicLayout>
+<PublicLayout {robots} {title} {description} {keywords} {url} {imageOG} {imagetwt}>
 	<HeroSection />
 	<MessageSection />
 	<PartnerSection />
