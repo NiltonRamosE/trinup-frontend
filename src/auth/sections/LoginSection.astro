@@ -1,52 +1,123 @@
 ---
+
 ---
 
 <section class="grid grid-cols-1 md:grid-cols-2 pt-25 md:pt-20">
-    <div class="hidden md:block">
-        <img src="/images/bg-login-pc.webp" alt="Imagen de bienvenida" class="w-md h-md lg:w-lg lg:h-lg xl:w-4xl xl:h-4xl" loading="lazy"/>
+  <!-- PARA PC -->
+  <div class="hidden md:block">
+    <img
+      src="/images/bg-login-pc.webp"
+      alt="Imagen de bienvenida"
+      class="w-md h-md lg:w-lg lg:h-lg xl:w-4xl xl:h-4xl"
+      loading="lazy"
+    />
+  </div>
+
+  <!-- Aquí iría la imagen de fondo para celular-->
+  <div class="md:hidden w-full relative p-0">
+    <div class="m-0 h-full w-full absolute">
+      <div class="overflow-hidden h-full absolute w-full">
+        <img
+          src="/images/bg-message.webp"
+          alt=" Imagen de bienvenida"
+          class="w-full h-full scale-160 object-cover"
+          loading="lazy"
+        />
+      </div>
     </div>
-    <!-- Aquí iría la imagen de fondo para celular-->
-    <div class="md:hidden px-5 sm:px-25 mb-15">
-        <h1 class="text-4xl font-semibold mb-2">¡Bienvenido!</h1>
-        <p class="font-light">Probar o crecer, todo comienza aquí.</p>
-    </div>
-    <div class="flex items-center justify-center px-5 sm:px-10 lg:px-0">
-        <div class="w-full max-w-md">
-            <div class="hidden md:block">
-                <h1 class="text-2xl lg:text-3xl font-semibold mb-2">¡Bienvenido!</h1>
-                <p class="text-md lg:text-xl mb-2 xl:mb-15 font-light">Probar o crecer, todo comienza aquí.</p>
-            </div>
+    <div class="relative w-full h-full pt-18 p-8 md:p-10 md:pb-0 sm:p-15 sm:pb-0 pb-0">
+      <div class="">
+        <h1 class="text-5xl sm:text-6xl font-semibold mb-2">¡Bienvenido!</h1>
+      </div>
+      <div class="flex w-full mb-0 p-0 justify-between flex-wrap">
+        <p class="w-1/2 text-xl sm:text-3xl font-light">
+          Probar o crecer, todo comienza aquí.
+        </p>
 
-            <form>
-                <div class="mb-10 md:mb-5 xl:mb-10">
-                    <label for="email" class="block text-sm font-semibold">Correo electrónico <span class="text-red-500">*</span></label>
-                    <input type="email" id="email" name="email" required class="w-full md:w-xs lg:w-full border rounded-md px-4 py-2 mt-1 border-theme-rich-black/40" />
-                </div>
-
-                <div class="mb-10 md:mb-5 xl:mb-10">
-                    <label for="password" class="block text-sm font-semibold">Contraseña <span class="text-red-500">*</span></label>
-                    <input type="password" id="password" name="password" required class="w-full md:w-xs lg:w-full border rounded-md px-4 py-2 mt-1 border-theme-rich-black/40" />
-                </div>
-
-                <div class="flex items-center justify-between mb-10 w-full md:w-xs lg:w-full">
-                    <label class="flex items-center text-sm font-light">
-                        <input type="checkbox" id="remember" name="remember" class="mr-2" />
-                        Recordarme
-                    </label>
-                    <a href="/forgot-password" class="text-sm text-theme-malachite hover:underline font-medium">¿Olvidaste tu contraseña?</a>
-                </div>
-
-                <button type="submit" class="w-full md:w-xs lg:w-full bg-theme-spring-green text-theme-rich-black border-2 border-b-8 border-theme-rich-black font-medium py-3 px-6 rounded-2xl hover:bg-theme-spring-green/90 transition-colors duration-200">
-                    Iniciar sesión
-                </button>
-            </form>
-
-            <div class="w-full md:w-xs lg:w-full my-10 md:my-4 lg:my-10 border-t border-theme-rich-black/40"></div>
-
-            <div class="flex items-center justify-between mb-6 w-full md:w-xs lg:w-full">
-                <p class="mb-2 font-light">¿Primera vez aquí?</p>
-                <a href="/register" class="text-theme-malachite hover:underline font-medium">Crea tu cuenta</a>
-            </div>
+        <div class="w-1/2">
+          <img
+            src="/images/bg-login-guy.webp"
+            alt="Imagen de bienvenida"
+            class="object-cover scale-x-[-1]"
+            loading="lazy"
+          />
         </div>
+      </div>
     </div>
+  </div>
+
+  <!-- Aquí va el formulario -->
+  <div class="flex items-center justify-center px-5 sm:px-10 lg:px-0 rounded-2xl shadow-md z-20 mt-[-20px] bg-white pt-10">
+    <div class="w-full max-w-md">
+      <form>
+        <div class="mb-10 md:mb-5 xl:mb-10">
+          <label for="email" class="block text-sm font-semibold"
+            >Correo electrónico <span class="text-red-500">*</span></label
+          >
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            class="w-full md:w-xs lg:w-full border rounded-md px-4 py-2 mt-1 border-theme-rich-black/40"
+          />
+        </div>
+
+        <div class="mb-10 md:mb-5 xl:mb-10">
+          <label for="password" class="block text-sm font-semibold"
+            >Contraseña <span class="text-red-500">*</span></label
+          >
+          <input
+            type="password"
+            id="password"
+            name="password"
+            required
+            class="w-full md:w-xs lg:w-full border rounded-md px-4 py-2 mt-1 border-theme-rich-black/40"
+          />
+        </div>
+
+        <div
+          class="flex items-center justify-between mb-10 w-full md:w-xs lg:w-full"
+        >
+          <label class="flex items-center text-sm font-light">
+            <input type="checkbox" id="remember" name="remember" class="mr-2" />
+            Recordarme
+          </label>
+          <a
+            href="/forgot-password"
+            class="text-sm text-theme-malachite hover:underline font-medium"
+            >¿Olvidaste tu contraseña?</a
+          >
+        </div>
+
+        <button
+          type="submit"
+          class="w-full md:w-xs lg:w-full bg-theme-spring-green text-theme-rich-black border-2 border-b-8 border-theme-rich-black font-medium py-3 px-6 rounded-2xl hover:bg-theme-spring-green/90 transition-colors duration-200"
+        >
+          Iniciar sesión
+        </button>
+      </form>
+
+      <div
+        class="w-full md:w-xs lg:w-full my-10 md:my-4 lg:my-10 border-t border-theme-rich-black/40"
+      >
+      </div>
+
+      <div
+        class="flex items-center justify-between mb-6 w-full md:w-xs lg:w-full"
+      >
+        <p class="mb-2 font-light">¿Primera vez aquí?</p>
+        <a
+          href="/register"
+          class="text-theme-malachite hover:underline font-medium"
+          >Crea tu cuenta</a
+        >
+      </div>
+    </div>
+  </div>
 </section>
+
+<style>
+  div {
+  }
+</style>
