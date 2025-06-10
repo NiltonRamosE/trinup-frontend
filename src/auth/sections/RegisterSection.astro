@@ -52,7 +52,7 @@
   >
     <!-- Formulario -->
     <div
-      class="w-full py-8 md:px-10 sm:px-8 px-6 flex-col justify-start h-150 rounded-t-3xl"
+      class="w-full py-8 md:px-4 lg:px-30 sm:px-8 px-6 flex-col justify-start h-150 rounded-t-3xl"
     >
       <h2
         class="text-2xl md:block hidden font-semibold text-theme-rich-black mb-6"
@@ -61,7 +61,9 @@
       </h2>
 
       <!-- Tabs -->
-      <div class="flex rounded-lg overflow-hidden mb-6 border-1 border-gray-300">
+      <div
+        class="flex rounded-lg overflow-hidden mb-6 border-1 border-gray-300"
+      >
         <button
           id="tabCliente"
           onclick="showForm('cliente')"
@@ -79,7 +81,7 @@
       </div>
 
       <!-- Formulario Cliente -->
-      <form id="formCliente" class="space-y-5">
+      <form id="formCliente" class="space-y-5 flex-col">
         <!-- Nombre completo -->
         <div>
           <label class="block text-sm font-semibold mb-1"
@@ -156,12 +158,14 @@
         </div>
 
         <!-- Botón continuar -->
-        <button
-          type="submit"
-          class="w-full md:w-xs lg:w-full bg-theme-spring-green text-theme-rich-black border-2 border-b-8 border-theme-rich-black font-medium py-3 px-6 rounded-2xl hover:bg-theme-spring-green/90 transition-colors duration-200"
-        >
-          Continuar →
-        </button>
+        <div class="w-full flex justify-center">
+          <button
+            type="submit"
+            class="min-w-[200px] w-[600px] max-w-[600px] bg-theme-spring-green text-theme-rich-black border-2 border-b-8 border-theme-rich-black font-medium py-3 px-6 rounded-2xl hover:bg-theme-spring-green/90 transition-colors duration-200"
+          >
+            Continuar →
+          </button>
+        </div>
       </form>
 
       <!-- Formulario Empresa -->
@@ -199,12 +203,15 @@
             </label>
           </div>
         </div>
-        <button
-          type="submit"
-          class="w-full md:w-xs lg:w-full bg-theme-spring-green text-theme-rich-black border-2 border-b-8 border-theme-rich-black font-medium py-3 px-6 rounded-2xl hover:bg-theme-spring-green/90 transition-colors duration-200"
-        >
-          Continuar →
-        </button>
+        <!-- Botón continuar -->
+        <div class="w-full flex justify-center">
+          <button
+            type="submit"
+            class="min-w-[200px] w-[600px] max-w-[600px] bg-theme-spring-green text-theme-rich-black border-2 border-b-8 border-theme-rich-black font-medium py-3 px-6 rounded-2xl hover:bg-theme-spring-green/90 transition-colors duration-200"
+          >
+            Continuar →
+          </button>
+        </div>
       </form>
 
       <!-- Volver al inicio -->
@@ -354,9 +361,15 @@
       imageGirlMobile_mobile.classList.remove("hidden-custom");
       imageGuyLaptop_mobile.classList.add("hidden-custom");
 
-      tabCliente.classList.add("bg-theme-spring-green", "text-theme-rich-black");
+      tabCliente.classList.add(
+        "bg-theme-spring-green",
+        "text-theme-rich-black"
+      );
       tabCliente.classList.remove("bg-white", "text-theme-rich-black");
-      tabEmpresa.classList.remove("bg-theme-spring-green", "text-theme-rich-black");
+      tabEmpresa.classList.remove(
+        "bg-theme-spring-green",
+        "text-theme-rich-black"
+      );
       tabEmpresa.classList.add("bg-white", "text-theme-rich-black");
     } else {
       tabCliente.classList.remove("animation-fade-in");
@@ -370,9 +383,15 @@
 
       formCliente.classList.add("hidden");
       formEmpresa.classList.remove("hidden");
-      tabEmpresa.classList.add("bg-theme-spring-green", "text-theme-rich-black");
+      tabEmpresa.classList.add(
+        "bg-theme-spring-green",
+        "text-theme-rich-black"
+      );
       tabEmpresa.classList.remove("bg-white", "text-theme-rich-black");
-      tabCliente.classList.remove("bg-theme-spring-green", "text-theme-rich-black");
+      tabCliente.classList.remove(
+        "bg-theme-spring-green",
+        "text-theme-rich-black"
+      );
       tabCliente.classList.add("bg-white", "text-theme-rich-black");
     }
   }
