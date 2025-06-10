@@ -1,6 +1,379 @@
 ---
+
 ---
 
-<section class="pt-25 md:pt-20">
-    <h1>registro</h1>
+<section class="grid grid-cols-1 md:grid-cols-2 pt-22">
+  <!-- Aquí iría la imagen de fondo para celular-->
+  <div class="md:hidden w-full relative p-0 overflow-hidden z-20">
+    <div class="m-0 h-full w-full absolute">
+      <div class="overflow-hidden h-full absolute w-full">
+        <img
+          src="/images/bg-message.webp"
+          alt=" Imagen de bienvenida"
+          class="w-full h-full scale-160 object-cover"
+          loading="lazy"
+        />
+      </div>
+    </div>
+    <div
+      class="relative w-full h-full pt-18 p-8 md:p-10 md:pb-0 sm:p-15 sm:pb-0 pb-0"
+    >
+      <div class="">
+        <h1 class="text-6xl sm:text-6xl font-semibold mb-0">REGISTRATE</h1>
+      </div>
+      <div class="flex w-full h-60 mb-0 p-0 justify-between flex-wrap relative">
+        <h1 class="text-6xl sm:text-6xl font-semibold mb-0">COMO:</h1>
+        <div
+          class="w-1/2 right-0 absolute contain-image-responsive top-[-80px]"
+        >
+          <img
+            src="/images/girl-with-mobile.svg"
+            alt="Imagen de bienvenida"
+            id="imageGirlMobile-mobile"
+            class="max-w-[300px] h-full mobile-image-girl-responsive object-cover object-bottom image-girl-mobile animation-translate-in"
+            loading="lazy"
+          />
+          <img
+            src="/images/guy-with-laptop.webp"
+            alt="Imagen de bienvenida"
+            id="imageGuyLaptop-mobile"
+            class="h-[100%] scale-x-[-1] w-full hidden-custom absolute top-[-200px] scale-110 mt-5 mobile-image-guy-responsive object-contain image-girl-mobile animation-translate-in"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Aquí va el formulario -->
+  <!-- IMPORTANTE: Asegúrate de tener Poppins en tu proyecto -->
+  <div
+    class="flex items-center justify-center px-5 sm:px-10 lg:px-0 md:rounded-none md:mt-0 rounded-b-none rounded-4xl z-20 mt-[-50px] bg-white pt-10"
+  >
+    <!-- Formulario -->
+    <div
+      class="w-full py-8 md:px-10 sm:px-8 px-6 flex-col justify-start h-150 rounded-t-3xl"
+    >
+      <h2
+        class="text-2xl md:block hidden font-semibold text-theme-rich-black mb-6"
+      >
+        Registrarse como:
+      </h2>
+
+      <!-- Tabs -->
+      <div class="flex rounded-lg overflow-hidden mb-6 border-1 border-gray-300">
+        <button
+          id="tabCliente"
+          onclick="showForm('cliente')"
+          class="w-1/2 bg-theme-malachite text-theme-rich-black font-semibold py-2 cursor-pointer"
+        >
+          Cliente
+        </button>
+        <button
+          id="tabEmpresa"
+          onclick="showForm('empresa')"
+          class="w-1/2 bg-white text-theme-rich-black font-semibold py-2 cursor-pointer"
+        >
+          Empresa
+        </button>
+      </div>
+
+      <!-- Formulario Cliente -->
+      <form id="formCliente" class="space-y-5">
+        <!-- Nombre completo -->
+        <div>
+          <label class="block text-sm font-semibold mb-1"
+            >Nombre completo <span class="text-red-500">*</span></label
+          >
+          <input
+            type="text"
+            class="w-full border border-theme-rich-black/40 rounded-md px-4 py-2"
+            required
+          />
+        </div>
+
+        <!-- Apellido paterno / materno -->
+        <div class="flex gap-4">
+          <div class="w-1/2">
+            <label class="block text-sm font-semibold mb-1"
+              >A. Paterno <span class="text-red-500">*</span></label
+            >
+            <input
+              type="text"
+              class="w-full border border-theme-rich-black/40 rounded-md px-4 py-2"
+              required
+            />
+          </div>
+          <div class="w-1/2">
+            <label class="block text-sm font-semibold mb-1"
+              >A. Materno <span class="text-red-500">*</span></label
+            >
+            <input
+              type="text"
+              class="w-full border border-theme-rich-black/40 rounded-md px-4 py-2"
+              required
+            />
+          </div>
+        </div>
+
+        <!-- Correo electrónico -->
+        <div>
+          <label class="block text-sm font-semibold mb-1"
+            >Correo electrónico <span class="text-red-500">*</span></label
+          >
+          <input
+            type="email"
+            class="w-full border border-theme-rich-black/40 rounded-md px-4 py-2"
+            required
+          />
+        </div>
+
+        <!-- Contraseña / Confirmar -->
+        <div class="flex gap-4">
+          <!-- Contraseña -->
+          <div class="w-1/2">
+            <label class="block text-sm font-semibold mb-1"
+              >Contraseña <span class="text-red-500">*</span></label
+            >
+            <input
+              type="password"
+              class="w-full border border-theme-rich-black/40 rounded-md px-4 py-2"
+              required
+            />
+          </div>
+
+          <!-- Confírmala -->
+          <div class="w-1/2">
+            <label class="block text-sm font-semibold mb-1"
+              >Confírmala <span class="text-red-500">*</span></label
+            >
+            <input
+              type="password"
+              class="w-full border border-theme-rich-black/40 rounded-md px-4 py-2"
+              required
+            />
+          </div>
+        </div>
+
+        <!-- Botón continuar -->
+        <button
+          type="submit"
+          class="w-full md:w-xs lg:w-full bg-theme-spring-green text-theme-rich-black border-2 border-b-8 border-theme-rich-black font-medium py-3 px-6 rounded-2xl hover:bg-theme-spring-green/90 transition-colors duration-200"
+        >
+          Continuar →
+        </button>
+      </form>
+
+      <!-- Formulario Empresa -->
+      <form id="formEmpresa" class="space-y-5 hidden">
+        <div>
+          <label class="block text-sm font-semibold mb-1"
+            >RUC <span class="text-red-500">*</span></label
+          >
+          <input
+            type="text"
+            class="w-full border border-gray-300 rounded-md px-4 py-2"
+            required
+          />
+        </div>
+        <div>
+          <label class="block text-sm font-semibold mb-1"
+            >Razón Social <span class="text-red-500">*</span></label
+          >
+          <input
+            type="text"
+            class="w-full border border-gray-300 rounded-md px-4 py-2"
+            required
+          />
+        </div>
+        <div class="flex justify-between items-center">
+          <p class="text-theme-malachite text-lg font-bold mb-1">
+            ¿Desea pagar la suscripción?
+          </p>
+          <div class="flex gap-4 items-center">
+            <label class="flex items-center gap-1 text-sm">
+              <input type="radio" name="pago" /> Sí
+            </label>
+            <label class="flex items-center gap-1 text-sm">
+              <input type="radio" name="pago" checked /> No
+            </label>
+          </div>
+        </div>
+        <button
+          type="submit"
+          class="w-full md:w-xs lg:w-full bg-theme-spring-green text-theme-rich-black border-2 border-b-8 border-theme-rich-black font-medium py-3 px-6 rounded-2xl hover:bg-theme-spring-green/90 transition-colors duration-200"
+        >
+          Continuar →
+        </button>
+      </form>
+
+      <!-- Volver al inicio -->
+      <div class="text-center mt-6">
+        <a
+          href="/login"
+          class="text-sm text-theme-rich-black hover:underline flex items-center justify-center gap-1"
+        >
+          ← Regresar al inicio de sesión
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FONDO PARA PC -->
+  <div
+    class="hidden h-150 mt-[60px] md:flex justify-center relative overflow-hidden rounded-l-4xl"
+  >
+    <img
+      src="/images/bg-message.webp"
+      alt=""
+      class="scale-150 h-full object-bottom absolute"
+    />
+    <img
+      src="/images/girl-with-mobile.svg"
+      alt="Imagen de bienvenida"
+      id="imageGirlMobile-pc"
+      class="lg:h-260 md:h-280 h-120 absolute image-girl-mobile animation-translate-in"
+      loading="lazy"
+    />
+    <img
+      src="/images/guy-with-laptop.webp"
+      alt="Imagen de bienvenida"
+      id="imageGuyLaptop-pc"
+      class="h-[100%] mt-30 hidden-custom object-cover absolute image-girl-mobile animation-translate-in"
+      loading="lazy"
+    />
+  </div>
 </section>
+
+<style>
+  @media (max-width: 745px) {
+    .mobile-image-guy-responsive {
+      top: -150px;
+    }
+  }
+
+  @media (max-width: 580px) {
+    .contain-image-responsive {
+      top: -40px;
+    }
+    .mobile-image-guy-responsive {
+      top: -130px;
+    }
+  }
+  @media (max-width: 555px) {
+    .mobile-image-guy-responsive {
+      top: -100px;
+    }
+  }
+  @media (max-width: 500px) {
+    .mobile-image-guy-responsive {
+      top: -80px;
+    }
+  }
+  @media (max-width: 455px) {
+    .contain-image-responsive {
+      top: 80px;
+      scale: 1.4;
+    }
+    .mobile-image-guy-responsive {
+      top: -100px;
+    }
+  }
+
+  .animation-fade-in {
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes translateIn {
+    from {
+      translate: -800px;
+    }
+    to {
+      translate: 0px;
+    }
+  }
+
+  @keyframes translateOut {
+    from {
+      opacity: 1;
+      display: block;
+      translate: 0px;
+    }
+    to {
+      opacity: 0;
+      translate: 800px;
+      display: none;
+    }
+  }
+
+  .animation-translate-in {
+    animation: translateIn 0.5s ease-in-out;
+  }
+  .animation-translate-out {
+    animation: translateIn 0.5s ease-in-out reverse;
+  }
+  .hidden-custom {
+    animation: translateOut 0.5s ease-in-out;
+    translate: 800px;
+  }
+</style>
+
+<!-- Script para controlar los tabs -->
+<script is:inline>
+  function showForm(tipo) {
+    const formCliente = document.getElementById("formCliente");
+    const formEmpresa = document.getElementById("formEmpresa");
+    const tabCliente = document.getElementById("tabCliente");
+    const tabEmpresa = document.getElementById("tabEmpresa");
+    const imageGirlMobile_mobile = document.getElementById(
+      "imageGirlMobile-mobile"
+    );
+    const imageGuyLaptop_mobile = document.getElementById(
+      "imageGuyLaptop-mobile"
+    );
+    const imageGirlMobile_pc = document.getElementById("imageGirlMobile-pc");
+    const imageGuyLaptop_pc = document.getElementById("imageGuyLaptop-pc");
+
+    if (tipo === "cliente") {
+      formCliente.classList.remove("hidden");
+      formEmpresa.classList.add("hidden");
+      tabEmpresa.classList.remove("animation-fade-in");
+      tabCliente.classList.add("animation-fade-in");
+
+      //
+      imageGirlMobile_pc.classList.remove("hidden-custom");
+      imageGuyLaptop_pc.classList.add("hidden-custom");
+      imageGirlMobile_mobile.classList.remove("hidden-custom");
+      imageGuyLaptop_mobile.classList.add("hidden-custom");
+
+      tabCliente.classList.add("bg-theme-spring-green", "text-theme-rich-black");
+      tabCliente.classList.remove("bg-white", "text-theme-rich-black");
+      tabEmpresa.classList.remove("bg-theme-spring-green", "text-theme-rich-black");
+      tabEmpresa.classList.add("bg-white", "text-theme-rich-black");
+    } else {
+      tabCliente.classList.remove("animation-fade-in");
+      tabEmpresa.classList.add("animation-fade-in");
+
+      //
+      imageGirlMobile_pc.classList.add("hidden-custom");
+      imageGuyLaptop_pc.classList.remove("hidden-custom");
+      imageGirlMobile_mobile.classList.add("hidden-custom");
+      imageGuyLaptop_mobile.classList.remove("hidden-custom");
+
+      formCliente.classList.add("hidden");
+      formEmpresa.classList.remove("hidden");
+      tabEmpresa.classList.add("bg-theme-spring-green", "text-theme-rich-black");
+      tabEmpresa.classList.remove("bg-white", "text-theme-rich-black");
+      tabCliente.classList.remove("bg-theme-spring-green", "text-theme-rich-black");
+      tabCliente.classList.add("bg-white", "text-theme-rich-black");
+    }
+  }
+</script>
