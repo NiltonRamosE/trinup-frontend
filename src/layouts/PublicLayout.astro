@@ -67,7 +67,9 @@ const {
 	</head>
 	<body class="min-h-screen flex flex-col">
 		<Navbar />
-		<slot />
+		<main class="flex-grow">
+			<slot />
+		</main>
 		<Footer />
 	</body>
 </html>
