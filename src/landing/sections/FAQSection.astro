@@ -1,0 +1,119 @@
+---
+
+---
+
+<section class="items-center mx-auto py-10 text-center w-full">
+  <div
+    class="flex flex-row flex-wrap px-8 items-center justify-center gap-8 w-full"
+  >
+    <div class="m-8 text-left">
+      <h2 class="text-6xl xl:text-4xl font-bold text-theme-spring-green">Preguntas Frecuentes</h2>
+      <p class="mt-2 text-2xl xl:text-xl text-theme-rich-black font-regular">
+        ¿Tienes alguna otra duda? Llámanos 
+        <br> al <strong class="text-theme-spring-green">51+ xxx xxx xxx</strong>
+      </p>
+    </div>
+
+    <div class="mt-6 space-y-4 text-left w-full max-w-xl">
+      <details
+        class="group bg-theme-malachite rounded-3xl text-theme-rich-black px-4 py-3 transition-all duration-300"
+        data-open="false"
+      >
+        <summary
+          class="cursor-pointer flex justify-between items-center font-medium text-lg"
+        >
+          <span>1. ¿Quienes somos y qué hacemos?</span>
+          <span>▼</span>
+        </summary>
+        <div
+          class="transition-all duration-500 overflow-hidden mt-4 text-sm text-gray-700"
+        >
+          <p class="p-3 bg-theme-seasalt rounded-lg">
+            Somos una empresa especializada en formación técnica con más de 24
+            años de experiencia.
+          </p>
+        </div>
+      </details>
+
+      <details
+        class="bg-theme-malachite rounded-3xl text-theme-rich-black px-4 py-3"
+      >
+        <summary
+          class="cursor-pointer font-medium flex justify-between items-center text-lg"
+        >
+          <span>2. ¿Por qué entrar a Trinup?</span>
+          <span>▼</span>
+        </summary>
+        <div
+          class="transition-all duration-500 overflow-hidden mt-4 text-sm text-gray-700"
+        >
+          <p class="p-3 bg-theme-seasalt rounded-lg">
+            Porque te ofrecemos soluciones prácticas y capacitación de calidad
+            certificada.
+          </p>
+        </div>
+      </details>
+
+      <details
+        class="bg-theme-malachite rounded-3xl text-theme-rich-black px-4 py-3"
+      >
+        <summary
+          class="cursor-pointer font-medium flex justify-between items-center text-lg"
+        >
+          <span>3. ¿Dónde puedo ubicarlos?</span>
+          <span>▼</span>
+        </summary>
+        <div
+          class="transition-all duration-500 overflow-hidden mt-4 text-sm text-gray-700"
+        >
+          <p class="p-3 bg-theme-seasalt rounded-lg">
+            Puedes encontrarnos en nuestras sedes físicas o contactarnos desde
+            cualquier lugar.
+          </p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+<style>
+  summary::marker {
+    display: none;
+  }
+</style>
+<script>
+  // Controla la animación suave al abrir/cerrar
+  document.querySelectorAll("details").forEach((detail) => {
+    const summary = detail.querySelector("summary");
+    const content = detail.querySelector("div");
+    if (!summary) return;
+    const icon = summary.querySelector("svg");
+
+    summary.addEventListener("click", (e) => {
+      e.preventDefault();
+      const isOpen = detail.hasAttribute("open");
+
+      // Cierre suave
+      if (isOpen) {
+        if (content) {
+          content.style.maxHeight = content.scrollHeight + "px";
+          requestAnimationFrame(() => {
+            content.style.maxHeight = "0px";
+          });
+        }
+        if (icon) icon.classList.remove("rotate-180");
+        setTimeout(() => detail.removeAttribute("open"), 500);
+      }
+      // Apertura suave
+      else {
+        detail.setAttribute("open", "");
+        if (content) {
+          content.style.maxHeight = "0px";
+          requestAnimationFrame(() => {
+            content.style.maxHeight = content.scrollHeight + "px";
+          });
+        }
+        if (icon) icon.classList.add("rotate-180");
+      }
+    });
+  });
+</script>

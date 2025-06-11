@@ -1,0 +1,116 @@
+---
+import CarouselCard from "@/landing/components/CarouselCard.astro";
+import SplitCard from "@/landing/components/SplitCard.astro";
+---
+<section class="py-10">
+  <h3 class="text-2xl font-light text-center mb-6">COLABORACIONES CON MARCAS</h3>
+
+  <div id="carousel" class="relative w-full overflow-hidden">
+    <div id="carousel-track" class="flex transition-transform duration-500 ease-in-out w-full">
+      <CarouselCard image="/images/partnerts/nutriavo-logo.svg" alt="NutriAvo" />
+      <CarouselCard image="/images/partnerts/vitalmash-logo.svg" alt="Vitalmash" />
+      <CarouselCard image="/images/partnerts/sklit-logo.svg" alt="SKLIT" />
+      
+      <CarouselCard image="/images/logo-text.svg" alt="Trinup" />
+      <CarouselCard image="/images/logo-text.svg" alt="Trinup" />
+      <CarouselCard image="/images/logo-text.svg" alt="Trinup" />
+
+      <CarouselCard image="/images/logo-text.svg" alt="Trinup" />
+      <CarouselCard image="/images/logo-text.svg" alt="Trinup" />
+      <CarouselCard image="/images/logo-text.svg" alt="Trinup" />
+    </div>
+    <div id="dots" class="flex justify-center mt-6 space-x-4"></div>
+  </div>
+
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 px-4 place-items-center mt-50">
+    <SplitCard
+      text="CRECE TU PRODUCTO"
+      spanText="CON DATOS REALES"
+      image="/images/card-example-1.webp"
+      href="/productos"
+      label="¡Hazlo realidad!"
+    />
+
+    <SplitCard
+      text="DESCUBRE, PRUEBA, CONECTA"
+      spanText="Y HAZ LA DIFERENCIA"
+      image="/images/card-example-2.webp"
+      href="/productos"
+      label="¡Tu gusto cuenta!"
+    />
+  </div>
+</section>
+
+<script is:inline>
+  window.addEventListener('DOMContentLoaded', () => {
+    const track = document.getElementById('carousel-track');
+    const dotsContainer = document.getElementById('dots');
+
+    const originalCards = Array.from(track.children);
+    let currentIndex = 0;
+    let cardsPerSlide = 3;
+    let totalSlides = 0;
+
+    function groupCards() {
+      const width = window.innerWidth;
+
+      if (width < 768) {
+        cardsPerSlide = 1;
+      } else if (width < 1024) {
+        cardsPerSlide = 2;
+      } else {
+        cardsPerSlide = 3;
+      }
+
+      totalSlides = Math.ceil(originalCards.length / cardsPerSlide);
+
+      const groups = [];
+      for (let i = 0; i < originalCards.length; i += cardsPerSlide) {
+        const group = originalCards.slice(i, i + cardsPerSlide);
+        const wrapper = document.createElement('div');
+        wrapper.className = `flex justify-center gap-64 shrink-0 w-full px-4`;
+        group.forEach(card => wrapper.appendChild(card.cloneNode(true)));
+        groups.push(wrapper);
+      }
+
+      track.innerHTML = '';
+      groups.forEach(group => track.appendChild(group));
+
+      dotsContainer.innerHTML = '';
+      for (let i = 0; i < totalSlides; i++) {
+        const dot = document.createElement('button');
+        dot.className = 'w-3 h-3 rounded-full bg-gray-300';
+        dot.dataset.slide = i;
+        dot.addEventListener('click', () => {
+          currentIndex = i;
+          updateCarousel();
+        });
+        dotsContainer.appendChild(dot);
+      }
+
+      updateCarousel();
+    }
+
+    function updateCarousel() {
+      const slideWidth = track.clientWidth;
+      track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+
+      const dots = dotsContainer.querySelectorAll('button');
+      dots.forEach(dot => dot.classList.remove('bg-gray-800'));
+      if (dots[currentIndex]) dots[currentIndex].classList.add('bg-gray-800');
+    }
+
+    setInterval(() => {
+      currentIndex = (currentIndex + 1) % totalSlides;
+      updateCarousel();
+    }, 3000);
+
+    window.addEventListener('resize', () => {
+      currentIndex = 0;
+      groupCards();
+    });
+
+    groupCards();
+  });
+</script>

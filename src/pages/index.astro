@@ -1,13 +1,26 @@
 ---
-import MessageSection from '@/components/landing/MessageSection.astro';
-import Welcome from '../components/landing/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import PublicLayout from '@/layouts/PublicLayout.astro';
+import HeroSection from '@/landing/sections/HeroSection.astro';
+import MessageSection from '@/landing/sections/MessageSection.astro';
+import PartnerSection from '@/landing/sections/PartnerSection.astro';
+import ProposalSection from '@/landing/sections/ProposalSection.astro';
+import FAQSection from '@/landing/sections/FAQSection.astro';
+import ContactSection from '@/landing/sections/ContactSection.astro';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const robots = ["index", "follow"];
+const title = "TrinUp: Nutrición y superación";
+const description = "TrinUp es una app donde toda persona merece o puede mejorar su estilo de vida con buenos hábitos y nutrición.";
+const keywords = ["nutrición", "salud", "bienestar", "hábitos saludables", "TrinUp", "superación personal"];
+const url = "https://trinup-frontend.vercel.app";
+const imageOG = "/card-twt.webp";
+const imagetwt = "/card-twt.webp";
 ---
 
-<Layout>
-	<Welcome />
+<PublicLayout {robots} {title} {description} {keywords} {url} {imageOG} {imagetwt}>
+	<HeroSection />
 	<MessageSection />
-</Layout>
+	<PartnerSection />
+	<ProposalSection />
+	<FAQSection />
+	<ContactSection />
+</PublicLayout>
